@@ -3,6 +3,7 @@ import sys
 import pygame as p
 import asyncio
 import ChessEngine, ChessAI
+import os
 
 BOARD_HEIGHT = BOARD_WIDTH = 512
 MOVE_LOG_PANEL_WIDTH = 350
@@ -16,7 +17,7 @@ IMAGES = {}
 def loadImages():
     pieces = ['bp', 'bR', 'bN', 'bB', 'bK', 'bQ', 'wp', 'wR', 'wN', 'wB', 'wK', 'wQ']
     for piece in pieces:
-        IMAGES[piece] = p.transform.scale(p.image.load("images/" + piece + ".png"), (SQ_SIZE, SQ_SIZE))
+        IMAGES[piece] = p.transform.scale(p.image.load(os.path.dirname(os.path.realpath(__file__)) +"/images/" + piece + ".png"), (SQ_SIZE, SQ_SIZE))
 
 
 async def main():
